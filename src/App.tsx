@@ -1,7 +1,9 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import React from "react";
-import Login from "./Components/Login";
-import { Counter } from "./Components/Counter";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React from 'react';
+import Login from './Components/Login';
+import { Counter } from './Components/Counter';
+import BetterCounter from './Components/BetterCounter';
+
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
           <Login />
         </nav>
         <Counter />
+        <hr></hr>
+        <BetterCounter />
       </div>
     </div>
   );
