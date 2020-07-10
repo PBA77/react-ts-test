@@ -5,11 +5,14 @@ import { useEffect } from 'react';
 // Hook
 function useExplode() {
   const [isExploding, setIsExploding] = useState(false);
+  const [message, setMessage] = useState("");
+  
 
   useEffect(() => {
     let timerID: NodeJS.Timeout;
     if (isExploding) {
       timerID = setTimeout(() => {
+        setMessage("")
         setIsExploding(false);
       }, 2000);
     }
@@ -20,13 +23,14 @@ function useExplode() {
 
   const boom = () => {
     setIsExploding(true)
+    setMessage("BUM!")
   }
   
-  return {isExploding, boom}
+  return {message, boom}
  }
 
 export default () => {
-  const {isExploding, boom} = useExplode()
+  const {message, boom} = useExplode()
 
   return (
     <>
@@ -35,7 +39,7 @@ export default () => {
           Detonuj!
         </button>
         <div className="alert alert-danger" role="alert">
-          <h3>{isExploding ? "BUM!" : ""}</h3>
+          <h3>{message}</h3>
         </div>
       </div>
     </>
