@@ -3,7 +3,7 @@ import React from 'react';
 import Login from './Components/Login';
 import { Counter } from './Components/Counter';
 import BetterCounter from './Components/BetterCounter';
-
+import BestCounter from './Components/BestCounter';
 
 function App() {
   return (
@@ -13,9 +13,12 @@ function App() {
           <h3>Hello World :D</h3>
           <Login />
         </nav>
+        <hr></hr>
         <Counter />
         <hr></hr>
         <BetterCounter />
+        <hr></hr>
+        <BestCounter />
       </div>
     </div>
   );
