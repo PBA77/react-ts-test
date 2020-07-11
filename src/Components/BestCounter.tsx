@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component, useContext } from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { UserContext } from '../App';
 
 // Hook
 function useExplode() {
   const [isExploding, setIsExploding] = useState(false);
   const [message, setMessage] = useState("");
-  
 
   useEffect(() => {
     let timerID: NodeJS.Timeout;
@@ -31,12 +31,13 @@ function useExplode() {
 
 export default () => {
   const {message, boom} = useExplode()
+  const User = useContext(UserContext)
 
   return (
     <>
       <div>
-        <button type="button" onClick={boom} className="btn btn-danger">
-          Detonuj!
+        <button type="button" onClick={boom} className="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">      
+        Detonuj {User.name}!
         </button>
         <div className="alert alert-danger" role="alert">
           <h3>{message}</h3>
