@@ -1,7 +1,7 @@
-import React, { Component, useContext } from 'react';
-import { useState } from 'react';
-import { useEffect } from 'react';
-import { UserContext } from '../App';
+import React, { Component, useContext } from "react";
+import { useState } from "react";
+import { useEffect } from "react";
+import { UserContext } from "../App";
 
 // Hook
 function useExplode() {
@@ -12,7 +12,7 @@ function useExplode() {
     let timerID: NodeJS.Timeout;
     if (isExploding) {
       timerID = setTimeout(() => {
-        setMessage("")
+        setMessage("");
         setIsExploding(false);
       }, 2000);
     }
@@ -22,22 +22,30 @@ function useExplode() {
   });
 
   const boom = () => {
-    setIsExploding(true)
-    setMessage("BUM!")
-  }
-  
-  return {message, boom}
- }
+    setIsExploding(true);
+    setMessage("BUM!");
+  };
+
+  return { message, boom };
+}
 
 export default () => {
-  const {message, boom} = useExplode()
-  const User = useContext(UserContext)
+  const { message, boom } = useExplode();
+  const User = useContext(UserContext);
 
   return (
     <>
       <div>
-        <button type="button" onClick={boom} className="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">      
-        Detonuj {User.name}!
+        <button
+          type="button"
+          onClick={boom}
+          className="btn btn-secondary"
+          data-container="body"
+          data-toggle="popover"
+          data-placement="bottom"
+          data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+        >
+          Detonuj {User.name}!
         </button>
         <div className="alert alert-danger" role="alert">
           <h3>{message}</h3>
